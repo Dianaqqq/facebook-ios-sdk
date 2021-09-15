@@ -119,7 +119,7 @@ let package = Package(
         */
         .binaryTarget(
             name: "FBSDKCoreKit",
-            url: "https://github.com/facebook/facebook-ios-sdk/releases/download/v11.2.0/FBSDKCoreKit_XCFramework.zip",
+            url: "https://github.com/Dianaqqq/facebook-ios-sdk/releases/download/v11.2.0/FBSDKCoreKit_XCFramework.zip",
             checksum: "4bd619e776cc82c53908bb94d85c9ada0d386f8c437f72ea26fc056dc121e272"
         ),
 
@@ -138,7 +138,7 @@ let package = Package(
         */
         .binaryTarget(
             name: "FBSDKLoginKit",
-            url: "https://github.com/facebook/facebook-ios-sdk/releases/download/v11.2.0/FBSDKLoginKit_XCFramework.zip",
+            url: "https://github.com/Dianaqqq/facebook-ios-sdk/releases/download/v11.2.0/FBSDKLoginKit_XCFramework.zip",
             checksum: "589eb1edfc91ab36f0b66830866b8ec8b75c9b54528e80640032e8154a77021b"
         ),
 
