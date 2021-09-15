@@ -43,6 +43,7 @@
 static NSArray<NSString *> *standardEvents;
 static ASIdentifierManager *_cachedAdvertiserIdentifierManager;
 
+
 @implementation FBSDKAppEventsUtility
 
 + (void)initialize
