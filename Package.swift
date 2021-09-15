@@ -90,7 +90,7 @@ let package = Package(
         */
         .binaryTarget(
             name: "FBSDKCoreKit_Basics",
-            url: "https://github.com/facebook/facebook-ios-sdk/releases/download/v11.2.0/FBSDKCoreKit_Basics_XCFramework.zip",
+            url: "https://github.com/Dianaqqq/facebook-ios-sdk/releases/download/v11.2.0/FBSDKCoreKit_Basics_XCFramework.zip",
             checksum: "4c1a5e69b1e858be4ceeff1547e71ce7ef758864edc1061166c39502075a7ba0"
         ),
 
