@@ -41,26 +41,6 @@ extension FBSDKAppEventsUtilityTests {
     XCTAssertFalse(AppEventsUtility.isSensitiveUserData(text))
   }
 
-  func testIdentifierManagerWithShouldUseCachedManagerWithCachedManager() {
-    let cachedManager = ASIdentifierManager()
-    AppEventsUtility.cachedAdvertiserIdentifierManager = cachedManager
-    let resolver = TestDylibResolver()
-
-    let manager = AppEventsUtility.shared.asIdentifierManager(
-      shouldUseCachedManager: true,
-      dynamicFrameworkResolver: resolver
-    )
-
-    XCTAssertEqual(
-      manager,
-      cachedManager,
-      "Should use the cached manager when available and indicated"
-    )
-    XCTAssertFalse(
-      resolver.didLoadIdentifierManagerClass,
-      "Should not dynamically load the identifier manager class"
-    )
-  }
 
   func testIdentifierManagerWithShouldUseCachedManagerWithoutCachedManager() {
     let resolver = TestDylibResolver()

@@ -41,7 +41,6 @@
 #define FBSDK_APPEVENTSUTILITY_MAX_IDENTIFIER_LENGTH 40
 
 static NSArray<NSString *> *standardEvents;
-static ASIdentifierManager *_cachedAdvertiserIdentifierManager;
 
 @implementation FBSDKAppEventsUtility
 
@@ -179,28 +178,8 @@ static ASIdentifierManager *_cachedAdvertiserIdentifierManager;
       return nil;
     }
   }
-
-  ASIdentifierManager *manager = [self _asIdentifierManagerWithShouldUseCachedManager:shouldUseCachedManager
-                                                             dynamicFrameworkResolver:dynamicFrameworkResolver];
-  return manager.advertisingIdentifier.UUIDString;
 }
 
-- (ASIdentifierManager *)_asIdentifierManagerWithShouldUseCachedManager:(BOOL)shouldUseCachedManager
-                                               dynamicFrameworkResolver:(id<FBSDKDynamicFrameworkResolving>)dynamicFrameworkResolver
-{
-  if (shouldUseCachedManager && _cachedAdvertiserIdentifierManager) {
-    return _cachedAdvertiserIdentifierManager;
-  }
-
-  Class ASIdentifierManagerClass = [dynamicFrameworkResolver asIdentifierManagerClass];
-  ASIdentifierManager *manager = [ASIdentifierManagerClass sharedManager];
-  if (shouldUseCachedManager) {
-    _cachedAdvertiserIdentifierManager = manager;
-  } else {
-    _cachedAdvertiserIdentifierManager = nil;
-  }
-  return manager;
-}
 
 + (BOOL)isStandardEvent:(nullable NSString *)event
 {
@@ -471,20 +450,5 @@ static ASIdentifierManager *_cachedAdvertiserIdentifierManager;
   return matches > 0;
 }
 
-#if DEBUG
- #if FBTEST
-
-+ (ASIdentifierManager *)cachedAdvertiserIdentifierManager
-{
-  return _cachedAdvertiserIdentifierManager;
-}
-
-+ (void)setCachedAdvertiserIdentifierManager:(ASIdentifierManager *)manager
-{
-  _cachedAdvertiserIdentifierManager = manager;
-}
-
- #endif
-#endif
 
 @end
