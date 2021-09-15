@@ -179,7 +179,7 @@ static NSArray<NSString *> *standardEvents;
       return nil;
     }
   }
-
+    return nil;
 }
 
 
